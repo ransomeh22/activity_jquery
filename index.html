@@ -1,0 +1,65 @@
+<!-- Ransome Hudson 3/9/26 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activity_jQuery</title>
+    <script src="../resources/jquery-4.0.0.js"></script>
+    <script>
+        if (typeof jQuery == "undefined") {
+            document.write('<script src="https://code.jquery.com/jquery-4.0.0.js"><\/script>');
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            $("#summary").css("color", "blue");
+
+            $("#contactForm").validate({
+                rules: {
+                    name: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    message: "required"
+                }
+            });
+
+        });
+</script>
+</head>
+<body>
+    <header>
+        <h1>Common Uses of jQuery</h1>
+    </header>
+    <br/>
+    <p id="summary">
+        jQuery is used for things like modifying HTML elements, 
+        simplifying event handling like when the user clicks a button, 
+        and form validation. Here is the <a href="https://jqueryvalidation.org/files/dist/jquery.validate.min.js" target="_blank">
+        jQuery Validation Plugin Download
+        </a>.
+    </p>
+
+    <h2>Contact Form</h2>
+
+    <form id="contactForm">
+
+    <label for="name">Name</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="message">Message</label><br>
+    <textarea id="message" name="message" required></textarea><br><br>
+
+    <button type="submit">Submit</button>
+
+    </form>
+</body>
+</html>
